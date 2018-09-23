@@ -19,8 +19,8 @@ router.get('/', function (req, res) {
             } else {
                 console.log(articles);
                 let hbsObj = {
-                    title: 'All the News That\'s Fit to Scrape',
-                    subtitle: 'The Y Combinator Edition',
+                    title: 'All the News',
+                    subtitle: 'That\'s Fit to Scrape',
                     articles: articles
                 };
                 res.render('index', hbsObj);
@@ -43,8 +43,8 @@ router.get('/saved', function (req, res) {
             } else {
                 console.log(articles);
                 var hbsObj = {
-                    title: 'All the News That\'s Fit to Scrape',
-                    subtitle: 'The Y Combinator Edition',
+                    title: 'All the News',
+                    subtitle: ' That\'s Fit to Scrape',
                     articles: articles
                 };
                 res.render('saved', hbsObj);

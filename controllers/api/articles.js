@@ -103,20 +103,19 @@ router.delete('/:id', function (req, res) {
 // scrape articles
 router.get('/scrape', function (req, res, next) {
     request('https://news.ycombinator.com', function (error, response, html) {
-        var $ = cheerio.load(html);
-        var results = [];
+        let $ = cheerio.load(html);
+        let results = [];
         $('tr.athing td.title').each(function (i, e) {
-            var title = $(this).children('a').text(),
+            let title = $(this).children('a').text(),
                 link = $(this).children('a').attr('href'),
                 single = {};
             if (link !== undefined && link.includes('http') && title !== '') {
                 single = {
                     title: title,
-                    link: link,
-
+                    link: link
                 };
                 // create new article
-                var entry = new Article(single);
+                let entry = new Article(single);
                 // save to database
                 entry.save(function (err, doc) {
                     if (err) {
